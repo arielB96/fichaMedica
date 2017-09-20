@@ -1,0 +1,33 @@
+<div class="animate form login_form">
+ 
+ <fieldset>
+    <legend>Iniciar sesión</legend>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="conrainer">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+              <div class="field">
+              <%= f.email_field :email, autofocus: true,requiered: true, :class=>"form-control input-lg" ,placeholder: "Usuario"%>
+              </div><br>
+              <div class="field">
+                <%= f.password_field :password, autocomplete: "off",requiered: true,:class=>"form-control input-lg", placeholder: "Contraseña" %>
+              </div>
+              <% if devise_mapping.rememberable? -%>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label "Recordar" %>
+              </div>
+              <% end -%>
+              <div class="actions">
+                <%= f.submit "Entrar", :class=>"btn btn-lg btn-primary btn-block" %>
+              </div>
+              <%= render "devise/shared/links" %>                                   
+ </fieldset>
+    <% end %>
+        </div>
+      </div>
+      <div class="col-md-4"></div>
+      </div>
+</div>
+
+        	

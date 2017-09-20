@@ -1,0 +1,46 @@
+<h2>Agregar Paciente:</h2>
+  <%= form_for([@ficha_num.pacientes.build]) do |f| %>
+  
+  <div class="col-md-4">
+
+  <div class="field">
+    <%= f.label :nombre  %>
+    <%= f.text_field :nombre, id: :paciente_nombre, :class=>'form-control'%>
+  </div>
+  <div class="field">
+    <%= f.label :apellido %>
+    <%= f.text_field :apellido, id: :paciente_apellido,:class=>'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ci %>
+    <%= f.text_field :ci, id: :paciente_ci, :class=>'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sexo %>
+    <%= f.text_field :sexo, id: :paciente_sexo, :class=>'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :edad %>
+    <%= f.text_field :edad, id: :paciente_edad, :class=>'form-control'%>
+  </div>
+
+  <div class="field">
+    <%= f.label :lugarNacimiento %>
+    <%= f.text_field :lugarNacimiento, id: :paciente_lugarNacimiento, :class=>'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nacionalidad %>
+    <%= f.text_field :nacionalidad, id: :paciente_nacionalidad , :class=>'form-control'%>
+  </div>
+
+  <div class="field">
+    <%= f.label :etnia %>
+    <%= f.text_field :etnia, id: :paciente_etnia , :class=>'form-control'%>
+  </div>
+    <%= f.submit %>
+  </p>
+<% end %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombreMedicamento: MyString
+  fechaEntrada: MyString
+  fechaVencimiento: MyString
+  descrip: MyText
+  cantidad: 1
+
+two:
+  nombreMedicamento: MyString
+  fechaEntrada: MyString
+  fechaVencimiento: MyString
+  descrip: MyText
+  cantidad: 1

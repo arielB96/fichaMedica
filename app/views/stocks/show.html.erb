@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombremedicamento:</strong>
+  <%= @stock.nombreMedicamento %>
+</p>
+
+<p>
+  <strong>Fechaentrada:</strong>
+  <%= @stock.fechaEntrada %>
+</p>
+
+<p>
+  <strong>Fechavencimiento:</strong>
+  <%= @stock.fechaVencimiento %>
+</p>
+
+<p>
+  <strong>Descrip:</strong>
+  <%= @stock.descrip %>
+</p>
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @stock.cantidad %>
+</p>
+
+<%= link_to 'Edit', edit_stock_path(@stock) %> |
+<%= link_to 'Back', stocks_path %>

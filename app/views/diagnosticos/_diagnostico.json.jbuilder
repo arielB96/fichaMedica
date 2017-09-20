@@ -1,0 +1,2 @@
+json.extract! diagnostico, :id, :fecha, :hora, :axilaRectal, :presionArterial, :pulso, :freCardiaca, :freRespi, :peso, :talla, :perimeCefalico, :masaCorpo, :circuAbdomi, :estadNutricional, :alimentacion, :desarrolloMadura, :tanner, :vacucacionVigente, :areaTecEspecialidades, :nuevo, :motivoConsul, :diagnostico, :examenFisico, :otroDiagnos, :tratamiento, :created_at, :updated_at
+json.url diagnostico_url(diagnostico, format: :json)

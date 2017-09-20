@@ -1,0 +1,146 @@
+<%= form_with(model: diagnostico, local: true) do |form| %>
+  <% if diagnostico.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(diagnostico.errors.count, "error") %> prohibited this diagnostico from being saved:</h2>
+
+      <ul>
+      <% diagnostico.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="row">
+  <div class="col-md-8">
+  </div>
+  <div class="col-md-4">
+    <%= form.submit class: "btn btn-primary btn-xs" %>
+  </div>
+</div>
+<div class="row">
+    <div class="col-sm-1">
+      <%= form.label :fecha , "Fecha" %>
+      <%= form.text_field :fecha, id: :diagnostico_fecha, class: "form-control" %>
+    </div>
+
+    <div class="col-sm-1">
+      <%= form.label :hora, "Hora" %>
+      <%= form.text_field :hora, id: :diagnostico_hora , class: "form-control" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <%= form.label :axilaRectal, "Axila Rectal" %>
+      <%= form.text_field :axilaRectal, id: :diagnostico_axilaRectal , class: "form-control"  %>
+    </div>
+
+    <div class="col-sm-2">
+      <%= form.label :presionArterial, "Presion Arterial" %>
+      <%= form.text_field :presionArterial, id: :diagnostico_presionArterial , class: "form-control"  %>
+    </div>
+
+    <div class="col-sm-2">
+      <%= form.label :pulso, "Pulso" %>
+      <%= form.text_field :pulso, id: :diagnostico_pulso, class: "form-control"  %>
+    </div>
+
+    <div class="col-sm-2">
+      <%= form.label :freCardiaca, "Frecuencia Cardiaca" %>
+      <%= form.text_field :freCardiaca, id: :diagnostico_freCardiaca, class: "form-control"  %>
+    </div>
+
+    <div class="col-sm-2">
+      <%= form.label :freRespi, "Frecuencia Respiratoria" %>
+      <%= form.text_field :freRespi, id: :diagnostico_freRespi, class: "form-control"  %>
+    </div>
+
+    <div class="col-sm-2">
+      <%= form.label :peso, "Peso" %>
+      <%= form.text_field :peso, id: :diagnostico_peso, class: "form-control"  %>
+    </div>
+
+    <div class="col-sm-2">
+      <%= form.label :talla, "Talla" %>
+      <%= form.text_field :talla, id: :diagnostico_talla, class: "form-control"  %>
+    </div>
+    </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <%= form.label :perimeCefalico, "Perimetro Cefalico" %>
+      <%= form.text_field :perimeCefalico, id: :diagnostico_perimeCefalico, class: "form-control"  %>
+    </div>
+
+    <div class="col-sm-2">
+      <%= form.label :masaCorpo, "Masa Corporal" %>
+      <%= form.text_field :masaCorpo, id: :diagnostico_masaCorpo, class: "form-control"  %>
+    </div>
+
+    <div class="col-sm-2">
+      <%= form.label :circuAbdomi, "Circunferencia Abdominal" %>
+      <%= form.text_field :circuAbdomi, id: :diagnostico_circuAbdomi, class: "form-control"  %>
+    </div>
+
+    <div class="col-sm-2">
+      <%= form.label :estadNutricional, "Estado Nutricional" %>
+      <%= form.text_field :estadNutricional, id: :diagnostico_estadNutricional, class: "form-control"  %>
+    </div>
+
+    <div class="col-sm-2">
+      <%= form.label :alimentacion, "Alimentación" %>
+      <%= form.text_field :alimentacion, id: :diagnostico_alimentacion, class: "form-control"  %>
+    </div>
+
+    <div class="col-sm-2">
+      <%= form.label :desarrolloMadura, "Desarrollo Madurativo" %>
+      <%= form.text_field :desarrolloMadura, id: :diagnostico_desarrolloMadura, class: "form-control"  %>
+    </div>
+
+    <div class="col-sm-2">
+      <%= form.label :tanner, "Tanner" %>
+      <%= form.text_field :tanner, id: :diagnostico_tanner, class: "form-control"  %>
+    </div>
+
+    <div class="col-sm-2">
+      <%= form.label :vacucacionVigente, "Vacunacion Vigente" %>
+      <%= form.text_field :vacucacionVigente, id: :diagnostico_vacucacionVigente, class: "form-control"  %>
+    </div>
+
+    <div class="col-sm-2">
+      <%= form.label :areaTecEspecialidades, "Area Tecnica Especialidades" %>
+      <%= form.text_field :areaTecEspecialidades, id: :diagnostico_areaTecEspecialidades, class: "form-control"  %>
+    </div>
+
+    <div class="col-sm-2">
+      <%= form.label :nuevo, "Nuevo" %>
+      <%= form.text_field :nuevo, id: :diagnostico_nuevo, class: "form-control"  %>
+    </div>
+</div>
+<br><br>
+<div class="row">
+  <div class="col-sm-6">
+    <%= form.label :motivoConsul, "Motivo de la Consulta" %>
+    <%= form.text_area :motivoConsul, id: :diagnostico_motivoConsul, class: "form-control"  %>
+  </div>
+
+  <div class="col-sm-6">
+    <%= form.label :diagnostico, "Diagnostico" %>
+    <%= form.text_area :diagnostico, id: :diagnostico_diagnostico, class: "form-control"  %>
+  </div>
+
+  <div class="col-sm-6">
+    <%= form.label :examenFisico, "Examen Fisico" %>
+    <%= form.text_area :examenFisico, id: :diagnostico_examenFisico, class: "form-control"  %>
+  </div>
+
+  <div class="col-sm-6">
+    <%= form.label :otroDiagnos, "Otros Diagnostico" %>
+    <%= form.text_area :otroDiagnos, id: :diagnostico_otroDiagnos, class: "form-control"  %>
+  </div>
+</div>
+
+  <div>
+    <%= form.label :tratamiento, "Tratamiento" %>
+    <%= form.text_area :tratamiento, id: :diagnostico_tratamiento, class: "form-control"  %>
+  </div>
+<% end %>

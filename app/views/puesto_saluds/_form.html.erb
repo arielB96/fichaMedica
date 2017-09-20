@@ -1,0 +1,47 @@
+<%= form_with(model: puesto_salud, local: true) do |form| %>
+  <% if puesto_salud.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(puesto_salud.errors.count, "error") %> prohibited this puesto_salud from being saved:</h2>
+
+      <ul>
+      <% puesto_salud.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :puesto_salud_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contacto %>
+    <%= form.text_field :contacto, id: :puesto_salud_contacto %>
+  </div>
+
+  <div class="field">
+    <%= form.label :localidad %>
+    <%= form.text_field :localidad, id: :puesto_salud_localidad %>
+  </div>
+
+  <div class="field">
+    <%= form.label :distrito %>
+    <%= form.text_field :distrito, id: :puesto_salud_distrito %>
+  </div>
+
+  <div class="field">
+    <%= form.label :direccion %>
+    <%= form.text_field :direccion, id: :puesto_salud_direccion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :regionSanitaria %>
+    <%= form.text_field :regionSanitaria, id: :puesto_salud_regionSanitaria %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

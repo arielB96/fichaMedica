@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @puesto_salud.nombre %>
+</p>
+
+<p>
+  <strong>Contacto:</strong>
+  <%= @puesto_salud.contacto %>
+</p>
+
+<p>
+  <strong>Localidad:</strong>
+  <%= @puesto_salud.localidad %>
+</p>
+
+<p>
+  <strong>Distrito:</strong>
+  <%= @puesto_salud.distrito %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @puesto_salud.direccion %>
+</p>
+
+<p>
+  <strong>Regionsanitaria:</strong>
+  <%= @puesto_salud.regionSanitaria %>
+</p>
+
+<%= link_to 'Edit', edit_puesto_salud_path(@puesto_salud) %> |
+<%= link_to 'Back', puesto_saluds_path %>

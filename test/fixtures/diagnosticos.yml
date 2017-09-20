@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: MyString
+  hora: MyString
+  axilaRectal: MyString
+  presionArterial: MyString
+  pulso: MyString
+  freCardiaca: MyString
+  freRespi: MyString
+  peso: MyString
+  talla: MyString
+  perimeCefalico: MyString
+  masaCorpo: MyString
+  circuAbdomi: MyString
+  estadNutricional: MyString
+  alimentacion: MyString
+  desarrolloMadura: MyString
+  tanner: MyString
+  vacucacionVigente: MyString
+  areaTecEspecialidades: MyString
+  nuevo: MyString
+  motivoConsul: MyText
+  diagnostico: MyText
+  examenFisico: MyText
+  otroDiagnos: MyText
+  tratamiento: MyText
+
+two:
+  fecha: MyString
+  hora: MyString
+  axilaRectal: MyString
+  presionArterial: MyString
+  pulso: MyString
+  freCardiaca: MyString
+  freRespi: MyString
+  peso: MyString
+  talla: MyString
+  perimeCefalico: MyString
+  masaCorpo: MyString
+  circuAbdomi: MyString
+  estadNutricional: MyString
+  alimentacion: MyString
+  desarrolloMadura: MyString
+  tanner: MyString
+  vacucacionVigente: MyString
+  areaTecEspecialidades: MyString
+  nuevo: MyString
+  motivoConsul: MyText
+  diagnostico: MyText
+  examenFisico: MyText
+  otroDiagnos: MyText
+  tratamiento: MyText

@@ -1,0 +1,2 @@
+module PuestoSaludsHelper
+end
