@@ -1,0 +1,210 @@
+<%= form_with(model: ficha_medica, local: true) do |form| %>
+  <% if ficha_medica.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ficha_medica.errors.count, "error") %> prohibited this ficha_medica from being saved:</h2>
+
+      <ul>
+      <% ficha_medica.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+<div class="container">
+  <div class="col-md-1"></div>
+  <div class="col-md-10" style="background-color:#A1BFC7;">
+  <center><h2>Ficha Clinica</h2></center>
+    <div class="row">
+      <div class="col-xs-2">
+        <%= form.label :numero %>
+        <%= form.number_field :numero, id: :ficha_medica_numero, class: 'form-control'%>
+      </div>
+      <div class="col-xs-3">
+        <label>Tipo</label>
+        <%= form.collection_select(:categori_id, @categoris, :id, :tipo, {prompt: true}, {:class=>'form-control'}) %>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <hr>
+      <center><h4>Datos del Establecimiento</h4></center>
+    <hr>
+      <div class="row">
+        <div class="col-sm-2">
+          <%= form.label :especialidad %>
+        </div>
+          <div class="col-sm-6">
+              <%= form.radio_button :especialidad, 'Cirugia', :checked => true, :value => 'Cirugia' %> Cirugia
+              <%= form.radio_button :especialidad, 'Geo-Obstetricia', :checked => true, :value => 'Geo-Obstetricia' %> Geo-Obstetricia
+              <%= form.radio_button :especialidad, 'Pediatria', :checked => true, :value => 'Pediatria' %> Pediatria
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+      <div class="row">
+        <div class="form-group">
+          <div class="col-md-6">
+            <label>Puesto de Salud</label>
+            <%= form.collection_select(:puesto_salud_id, @puesto_salud, :id, :nombre, {prompt: true}, {:class=>'form-control', :id=>'select_puesto_salud'}) %>
+          </div>
+              <div class="col-md-6">
+                  <div class="form-group">
+                  <label for="disabledTextInput">Localidad</label>
+                  <input type="text" id="disabledTextInput" class="form-control" disabled= "disabled" >
+                </div>
+              </div>
+        </div>
+        <div class="form-group">
+              <div class="col-md-6">
+                  <label>Distrito</label>
+                  <input type="text" id="tbDistrito" class="form-control" disabled= "disabled">
+              </div>
+              <div class="col-md-6">
+                  <label>Region Sanitaria</label>
+                  <input type="text" id="tbRegion" class="form-control" disabled= "disabled">
+              </div>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <hr>
+      <center><h4>Datos de Paciente</h4></center>
+      <hr>
+        <div class="col-lg-3">
+            <%= form.label :ci %>
+            <%= form.text_field :ci, id: :ficha_medica_ci, class: "form-control" %>
+        </div>
+        <div class="col-lg-8">
+        </div>
+    </div>
+    <div class="row">
+          <div class="col-lg-6">
+            <%= form.label :nombre %>
+            <%= form.text_field :nombre, id: :ficha_medica_nombre, class: "form-control"  %>
+            
+          </div>
+          <div class="col-lg-6">
+            <%= form.label :apellido %>
+            <%= form.text_field :apellido, id: :ficha_medica_apellido, class: "form-control" %>
+          </div>
+          
+          <div class="col-md-6">
+            <%= form.label :fechaNacimiento %>
+            <%= form.date_field :fechaNacimiento, id: :ficha_medica_fehcaNacimiento, class: "form-control" %>
+          </div>
+      
+          <div class="col-lg-4">
+            <%= form.label :edad %>
+            <%= form.number_field :edad, id: :ficha_medica_edad, class: "form-control" %>
+          </div>
+          <div class="col-lg-2">
+          </div>
+
+          <div class="col-md-6">
+            <%= form.label :etnia %>
+            <%= form.text_field :etnia, id: :ficha_medica_etnia, class: "form-control" %>
+          </div>
+
+          <div class="col-md-6">
+            <%= form.label :sexo %>
+            <%= form.text_field :sexo, id: :ficha_medica_sexo, class: "form-control" %>
+          </div>
+          <div class="col-md-6"></div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <%= form.label :estadoCivil %>
+              <%= form.radio_button :estadoCivil, 'Soltero/a', :checked => true, :value => 'Soltero/a' %> Soltero/a
+              <%= form.radio_button :estadoCivil, 'Casado/a', :checked => true, :value => 'Casado/a' %> Casado/a
+              <%= form.radio_button :estadoCivil, 'Divorsiado/a', :checked => true, :value => 'Divorsiado/a' %> Divorsiado/a
+              <%= form.radio_button :estadoCivil, 'Viudo/a', :checked => true, :value => 'Viudo/a' %> Viudo/a
+            </div>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :lugarNacimiento %>
+            <%= form.text_field :lugarNacimiento, id: :ficha_medica_lugarNacimiento, class: "form-control" %>
+          </div>
+
+          <div class="col-md-6">
+            <%= form.label :telefono %>
+            <%= form.number_field :telefono, id: :ficha_medica_telefono, class: "form-control" %>
+          </div>
+
+          <div class="col-md-6">
+            <%= form.label :nCasa %>
+            <%= form.number_field :nCasa, id: :ficha_medica_nCasa, class: "form-control" %>
+          </div>
+
+          <div class="col-md-6">
+            <%= form.label :email %>
+            <%= form.text_field :email, id: :ficha_medica_email , class: "form-control"%>
+          </div>
+
+          <div class="col-md-6">
+            <%= form.label :direccionActual %>
+            <%= form.text_field :direccionActual, id: :ficha_medica_direccionActual, class: "form-control" %>
+          </div>
+
+          <div class="col-md-6">
+            <%= form.label :departamentoActual %>
+            <%= form.text_field :departamentoActual, id: :ficha_medica_departamentoActual, class: "form-control" %>
+          </div>
+          <div class="col-md-6">
+            <%= form.label :distritoActual %>
+            <%= form.text_field :distritoActual, id: :ficha_medica_distritoActual, class: "form-control" %>
+          </div>
+    </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  </div>
+  <div class="col-md-1"></div>
+</div>
+
+<% end %>
+<script type="text/javascript">
+  
+    $("#select_puesto_salud" ).change(function() {
+      var id = $('#select_puesto_salud').val();
+
+      $.ajax({
+              type:'GET', 
+              url: '/puesto_saluds/getInfo',
+              data: {"id": id},
+
+              success: function(data) {
+                console.log(data.nombre);
+                $('#disabledTextInput').val(data.localidad);
+                $('#tbDistrito').val(data.distrito);
+                $('#tbRegion').val(data.regionSanitaria);
+                  console.log(data);
+                  
+              },
+              error: function(data) {
+                    alert('error');
+              }
+
+               //data: $.param({ pagetime: {pagename: "whatever", start: 7, end: 21 }})
+          });
+
+      });
+</script>

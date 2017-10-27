@@ -1,0 +1,218 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+    <div class="col-md-3">
+      <p>
+        <strong>Ficha Numero:</strong>
+         <%= @ficha_medica.numero %>
+      </p>
+      <p>
+        <strong>C.I.Nº:</strong>
+         <%= @ficha_medica.ci %>
+      </p>
+      <p>
+        <strong>Nombre:</strong>
+        <%= @ficha_medica.nombre %>
+      </p>
+      <p>
+        <strong>Apellido:</strong>
+        <%= @ficha_medica.apellido %>
+      </p>
+      <p>
+        <strong>Edad:</strong>
+        <%= @ficha_medica.edad %>
+      </p>
+      <p>
+        <strong>Estado Civil:</strong>
+        <%= @ficha_medica.estadoCivil %>
+      </p>
+      <%= link_to 'Editar', edit_ficha_medica_path(@ficha_medica) %> |
+      <%= link_to 'Atras', ficha_medicas_path %>
+  </div>
+<div class="col-md-9">
+  <div class="row">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Nueva Consulta</button>
+  <table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Peso</th>
+      <th>Motivoconsul</th>
+      <th>Diagnostico</th>
+      <th>Tratamiento</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ficha_medica.diagnosticos.each do |consultas| %>
+      <tr>
+        <td><%= consultas.fecha %></td>
+        <td><%= consultas.hora %></td>
+        <td><%= consultas.peso %></td>
+        <td><%= consultas.motivoConsul %></td>
+        <td><%= consultas.diagnostico %></td>
+        <td><%= consultas.tratamiento %></td>
+       </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+<!-- Modal -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel">Nueva Consulta</h4>
+      </div>
+      <div class="modal-body">
+      <%= form_for([@ficha_medica, @ficha_medica.diagnosticos.build]) do |f| %>
+          <div class="row">
+              <div class="col-sm-2">
+                <%= f.label :fecha , "Fecha" %>
+                <%= f.date_field :fecha, id: :diagnostico_fecha, class: "form-control" %>
+              </div>
+
+              <div class="col-sm-2">
+                <%= f.label :hora, "Hora" %>
+                <%= f.time_field :hora, id: :diagnostico_hora , class: "form-control" %>
+              </div>
+              <div class="col-md-3"></div>
+              <div class="col-md-4">
+              <%= f.submit 'Guardar Consulta' ,class: "btn btn-primary btn-xs" %>
+            </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-2">
+                <%= f.label :axilaRectal, "Axila Rectal" %>
+                <%= f.text_field :axilaRectal, id: :diagnostico_axilaRectal , class: "form-control"  %>
+              </div>
+
+              <div class="col-sm-2">
+                <%= f.label :presionArterial, "Presion Arterial" %>
+                <%= f.text_field :presionArterial, id: :diagnostico_presionArterial , class: "form-control"  %>
+              </div>
+
+              <div class="col-sm-2">
+                <%= f.label :pulso, "Pulso" %>
+                <%= f.text_field :pulso, id: :diagnostico_pulso, class: "form-control"  %>
+              </div>
+
+              <div class="col-sm-3">
+                <%= f.label :freCardiaca, "Frecuencia Cardiaca" %>
+                <%= f.text_field :freCardiaca, id: :diagnostico_freCardiaca, class: "form-control"  %>
+              </div>
+
+              <div class="col-sm-3">
+                <%= f.label :freRespi, "Frecuencia Respiratoria" %>
+                <%= f.text_field :freRespi, id: :diagnostico_freRespi, class: "form-control"  %>
+              </div>
+            </div>
+
+
+
+
+              <div class="row">
+                <div class="col-sm-2">
+                  <%= f.label :peso, "Peso" %>
+                  <%= f.text_field :peso, id: :diagnostico_peso, class: "form-control"  %>
+                </div>
+
+                <div class="col-sm-2">
+                  <%= f.label :talla, "Talla" %>
+                  <%= f.text_field :talla, id: :diagnostico_talla, class: "form-control"  %>
+                </div>
+
+                  <div class="col-sm-3">
+                    <%= f.label :perimeCefalico, "Perimetro Cefalico" %>
+                    <%= f.text_field :perimeCefalico, id: :diagnostico_perimeCefalico, class: "form-control"  %>
+                  </div>
+
+                  <div class="col-sm-2">
+                    <%= f.label :masaCorpo, "Masa Corporal" %>
+                    <%= f.text_field :masaCorpo, id: :diagnostico_masaCorpo, class: "form-control"  %>
+                  </div>
+
+                  <div class="col-sm-3">
+                    <%= f.label :circuAbdomi, "Circunferencia Abdominal" %>
+                    <%= f.text_field :circuAbdomi, id: :diagnostico_circuAbdomi, class: "form-control"  %>
+                  </div>
+              </div>
+
+
+            <div class="row">
+              <div class="col-sm-3">
+                <%= f.label :estadNutricional, "Estado Nutricional" %>
+                <%= f.text_field :estadNutricional, id: :diagnostico_estadNutricional, class: "form-control"  %>
+              </div>
+
+              <div class="col-sm-2">
+                <%= f.label :alimentacion, "Alimentación" %>
+                <%= f.text_field :alimentacion, id: :diagnostico_alimentacion, class: "form-control"  %>
+              </div>
+
+              <div class="col-sm-3">
+                <%= f.label :desarrolloMadura, "Desarrollo Madurativo" %>
+                <%= f.text_field :desarrolloMadura, id: :diagnostico_desarrolloMadura, class: "form-control"  %>
+              </div>
+
+              <div class="col-sm-2">
+                <%= f.label :tanner, "Tanner" %>
+                <%= f.text_field :tanner, id: :diagnostico_tanner, class: "form-control"  %>
+              </div>
+            </div>
+
+
+
+            <div class="row">
+           
+              <div class="col-sm-3">
+                <%= f.label :vacucacionVigente, "Vacunacion Vigente" %>
+                <%= f.text_field :vacucacionVigente, id: :diagnostico_vacucacionVigente, class: "form-control"  %>
+              </div>
+
+              <div class="col-sm-3">
+                <%= f.label :areaTecEspecialidades, "Area Tecnica Especialidades" %>
+                <%= f.text_field :areaTecEspecialidades, id: :diagnostico_areaTecEspecialidades, class: "form-control"  %>
+              </div>
+
+              <div class="col-sm-2">
+                <%= f.label :nuevo, "Nuevo" %>
+                <%= f.text_field :nuevo, id: :diagnostico_nuevo, class: "form-control"  %>
+              </div>
+
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-sm-6">
+              <%= f.label :motivoConsul, "Motivo de la Consulta" %>
+              <%= f.text_area :motivoConsul, id: :diagnostico_motivoConsul, class: "form-control"  %>
+            </div>
+
+            <div class="col-sm-6">
+              <%= f.label :diagnostico, "Diagnostico" %>
+              <%= f.text_area :diagnostico, id: :diagnostico_diagnostico, class: "form-control"  %>
+            </div>
+
+            <div class="col-sm-6">
+              <%= f.label :examenFisico, "Examen Fisico" %>
+              <%= f.text_area :examenFisico, id: :diagnostico_examenFisico, class: "form-control"  %>
+            </div>
+
+            <div class="col-sm-6">
+              <%= f.label :otroDiagnos, "Otros Diagnostico" %>
+              <%= f.text_area :otroDiagnos, id: :diagnostico_otroDiagnos, class: "form-control"  %>
+            </div>
+          </div>
+
+            <div>
+              <%= f.label :tratamiento, "Tratamiento" %>
+              <%= f.text_area :tratamiento, id: :diagnostico_tratamiento, class: "form-control"  %>
+            </div>
+    </div>
+    <%end%>
+    </div>
+  </div>
+</div>
