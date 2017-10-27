@@ -10,6 +10,7 @@ class DiagnosticosController < ApplicationController
   # GET /diagnosticos/1
   # GET /diagnosticos/1.json
   def show
+    
   end
 
   # GET /diagnosticos/new
@@ -24,17 +25,10 @@ class DiagnosticosController < ApplicationController
   # POST /diagnosticos
   # POST /diagnosticos.json
   def create
-    @diagnostico = Diagnostico.new(diagnostico_params)
-
-    respond_to do |format|
-      if @diagnostico.save
-        format.html { redirect_to @diagnostico, notice: 'Diagnostico was successfully created.' }
-        format.json { render :show, status: :created, location: @diagnostico }
-      else
-        format.html { render :new }
-        format.json { render json: @diagnostico.errors, status: :unprocessable_entity }
-      end
-    end
+    
+    @ficha_medica = FichaMedica.find(params[:ficha_medica_id])
+    @diagnostico = @ficha_medica.diagnosticos.create(diagnostico_params)
+    redirect_to :ficha_medica, notice: 'Nueva Consulta'
   end
 
   # PATCH/PUT /diagnosticos/1

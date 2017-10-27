@@ -24,7 +24,7 @@ class CreateDiagnosticos < ActiveRecord::Migration[5.1]
       t.text :diagnostico
       t.text :examenFisico
       t.text :otroDiagnos
-      t.text :tratamiento
+      t.text :tratamiento      
 
       t.timestamps
     end

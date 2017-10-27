@@ -1,6 +1,6 @@
 class PuestoSaludsController < ApplicationController
   before_action :set_puesto_salud, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   # GET /puesto_saluds
   # GET /puesto_saluds.json
   def index

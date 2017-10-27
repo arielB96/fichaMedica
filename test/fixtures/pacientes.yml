@@ -4,18 +4,16 @@ one:
   nombre: MyString
   apellido: MyString
   ci: MyString
-  sexo: MyString
   edad: MyString
-  lugarNacimiento: MyString
-  nacionalidad: MyString
   etnia: MyString
+  nacionalidad: MyString
+  lugarNac: MyString
 
 two:
   nombre: MyString
   apellido: MyString
   ci: MyString
-  sexo: MyString
   edad: MyString
-  lugarNacimiento: MyString
-  nacionalidad: MyString
   etnia: MyString
+  nacionalidad: MyString
+  lugarNac: MyString

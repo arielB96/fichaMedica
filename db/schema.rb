@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170918191840) do
+ActiveRecord::Schema.define(version: 20171018145824) do
 
-  create_table "categoris", force: :cascade do |t|
+  create_table "categoris", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "tipo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "diagnosticos", force: :cascade do |t|
+  create_table "diagnosticos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "fecha"
     t.string "hora"
     t.string "axilaRectal"
@@ -43,11 +43,42 @@ ActiveRecord::Schema.define(version: 20170918191840) do
     t.text "examenFisico"
     t.text "otroDiagnos"
     t.text "tratamiento"
+    t.integer "ficha_medica_id"
+    t.index ["ficha_medica_id"], name: "index_diagnosticos_on_ficha_medica_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "ficha_nums", force: :cascade do |t|
+  create_table "ficha_medicas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "numero"
+    t.string "especialidad"
+    t.string "nombre"
+    t.string "apellido"
+    t.integer "edad"
+    t.integer "nacionalidad"
+    t.integer "ci"
+    t.string "fechaNacimiento", limit: 100, null: false
+    t.string "etnia"
+    t.string "sexo"
+    t.string "estadoCivil"
+    t.string "lugarNacimiento"
+    t.integer "telefono"
+    t.integer "nCasa"
+    t.string "email"
+    t.string "direccionActual"
+    t.string "departamentoActual"
+    t.string "distritoActual"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "puesto_salud_id"
+    t.bigint "categori_id"
+    t.bigint "diagnostico_id"
+    t.index ["categori_id"], name: "index_ficha_medicas_on_categori_id"
+    t.index ["diagnostico_id"], name: "index_ficha_medicas_on_diagnostico_id"
+    t.index ["puesto_salud_id"], name: "index_ficha_medicas_on_puesto_salud_id"
+  end
+
+  create_table "ficha_nums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "numero"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -61,14 +92,14 @@ ActiveRecord::Schema.define(version: 20170918191840) do
     t.index ["puesto_salud_id"], name: "index_ficha_nums_on_puesto_salud_id"
   end
 
-  create_table "fichas", force: :cascade do |t|
+  create_table "fichas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "fichaNum"
     t.string "especialidad"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "models", force: :cascade do |t|
+  create_table "models", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -85,7 +116,7 @@ ActiveRecord::Schema.define(version: 20170918191840) do
     t.index ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true
   end
 
-  create_table "pacientes", force: :cascade do |t|
+  create_table "pacientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "nombre"
     t.string "apellido"
     t.string "ci"
@@ -100,7 +131,7 @@ ActiveRecord::Schema.define(version: 20170918191840) do
     t.index ["ficha_num_id"], name: "index_pacientes_on_ficha_num_id"
   end
 
-  create_table "puesto_saluds", force: :cascade do |t|
+  create_table "puesto_saluds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "nombre"
     t.string "contacto"
     t.string "localidad"
@@ -111,7 +142,7 @@ ActiveRecord::Schema.define(version: 20170918191840) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "stocks", force: :cascade do |t|
+  create_table "stocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "nombreMedicamento"
     t.string "fechaEntrada"
     t.string "fechaVencimiento"
@@ -121,7 +152,7 @@ ActiveRecord::Schema.define(version: 20170918191840) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

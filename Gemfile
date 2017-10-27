@@ -9,7 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'mysql2', '0.3.21'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -52,6 +52,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Instalados aparte de las gemas con que cuenta ya el sistema
  gem 'devise'
  gem 'bootstrap-sass', '~> 3.3.6'
- gem 'autoprefixer-rails'
- gem 'rails4-autocomplete'
  
+ gem 'rails4-autocomplete'
+ gem 'jquery-datatables-rails', '3.4.0'
+ gem 'jquery-rails'
