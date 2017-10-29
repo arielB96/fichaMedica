@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :stock_medicas
+  resources :medicamentos
  resources :ficha_medicas do
   resources :diagnosticos do
   resources :consultas
